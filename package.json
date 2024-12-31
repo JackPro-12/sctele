@@ -7,9 +7,6 @@
         "start2": "node index.js",
         "start": "node final*.js",
     },
-    "engines": {
-        "node": "19.x"
-    },
     "dependencies": {
         "baileys": "github:nstar-y/Bail",
         "axios": "^1.6.0",
