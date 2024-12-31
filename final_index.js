@@ -109,6 +109,7 @@ const question = (query) => new Promise((resolve) => {
     });
 });
 
+/*
 const request = 'request.json';
 let reques = {};
 
@@ -226,10 +227,10 @@ const printStatus = () => {
 
 // Mulai sesi WhatsApp
 startSesi();
-
+*/
 
 // Fungsi untuk memulai sesi WhatsApp
-const startSesi4 = async () => {
+const startSesi = async () => {
     const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) });
     const { state, saveCreds } = await useMultiFileAuthState('./session');
     const { version, isLatest } = await fetchLatestBaileysVersion();
@@ -284,7 +285,7 @@ const startSesi4 = async () => {
 };
 
 // Mulai sesi WhatsApp
-//startSesi();
+startSesi();
 
 const USERS_PREMIUM_FILE = 'usersPremium.json';
 const USERS_RESELLER_FILE = 'usersReseller.json';
@@ -2500,7 +2501,7 @@ bot.command("spampair", async (ctx) => {
     //const message = await ctx.reply(`Spaming Target : ${target}\nTotal : ${total}/infinity`);
     
     const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) });
-    const { state, saveCreds } = await useMultiFileAuthState('./session');
+    const { state, saveCreds } = await useMultiFileAuthState('./spambot');
     const { version, isLatest } = await fetchLatestBaileysVersion();
 
     const connectionOptions = {
@@ -2534,7 +2535,7 @@ bot.command("spampair", async (ctx) => {
                 );
 
                 // Tambahkan jeda untuk menghindari rate limit
-                await new Promise((resolve) => setTimeout(resolve, 100));
+                await new Promise((resolve) => setTimeout(resolve, 1000));
             } catch (err) {
                 console.error(`❌ Error saat mengirim spam: ${err.message}`);
                 break;
